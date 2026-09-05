@@ -1,20 +1,18 @@
-/* Shared styles for all pages. Academic / serif, light + dark friendly. */
-
 :root {
-  --bg: #fdfdfb;
-  --text: #1f1f1f;
-  --muted: #5c5c5c;
-  --accent: #6b4f2a;
-  --rule: #d8d3c7;
+  --bg: #ffffff;
+  --text: #222222;
+  --muted: #6b6b6b;
+  --accent: #2a6fb0;
+  --rule: #e5e5e5;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #16150f;
-    --text: #e8e4d8;
-    --muted: #a49f8f;
-    --accent: #c9a978;
-    --rule: #3a3730;
+    --bg: #161616;
+    --text: #e6e6e6;
+    --muted: #9a9a9a;
+    --accent: #6fb0e0;
+    --rule: #333333;
   }
 }
 
@@ -22,113 +20,186 @@
   box-sizing: border-box;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
-  padding: 3rem 1.25rem 4rem;
   background: var(--bg);
   color: var(--text);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 18px;
-  line-height: 1.65;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.6;
 }
 
-.wrap {
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-h1, h2, h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 700;
-  line-height: 1.25;
+h1,
+h2,
+h3 {
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 0 0 0.6rem;
 }
 
 h1 {
-  font-size: 1.9rem;
-  margin: 0 0 0.25rem;
+  font-size: 1.6rem;
 }
 
 h2 {
-  font-size: 1.35rem;
-  margin: 2.25rem 0 0.5rem;
+  font-size: 1.15rem;
+  margin-top: 2.2rem;
 }
 
-.tagline {
-  color: var(--muted);
-  font-style: italic;
-  margin: 0 0 1.5rem;
+p {
+  margin: 0 0 1rem;
+}
+
+strong,
+b {
+  font-weight: 600;
 }
 
 a {
   color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
 }
 
 a:hover {
-  border-bottom-color: var(--accent);
+  text-decoration: underline;
 }
 
 img {
   max-width: 100%;
 }
 
-/* Navigation */
-.nav {
+.masthead {
   display: flex;
-  gap: 1.5rem;
-  padding-bottom: 0.75rem;
-  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
   border-bottom: 1px solid var(--rule);
-  font-size: 1rem;
 }
 
-.nav a {
+.masthead .site-name {
+  font-size: 1.3rem;
+  color: var(--text);
+}
+
+.masthead nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.masthead nav a {
   color: var(--muted);
-  border-bottom: none;
 }
 
-.nav a:hover {
+.masthead nav a:hover {
   color: var(--text);
 }
 
-.nav a[aria-current="page"] {
+.masthead nav a[aria-current="page"] {
   color: var(--text);
-  font-weight: 700;
 }
 
-/* Home page profile photo */
+.layout {
+  display: flex;
+  gap: 3rem;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.sidebar {
+  flex: 0 0 220px;
+  position: sticky;
+  top: 2rem;
+  align-self: flex-start;
+}
+
 .profile-photo {
   display: block;
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
-  margin: 0 auto 1.5rem;
   border: 1px solid var(--rule);
+  margin-bottom: 1rem;
 }
 
-/* Lists of interests / hobbies / links */
-.detail-list {
+.sidebar .name {
+  font-size: 1.2rem;
+  margin-bottom: 0.15rem;
+}
+
+.sidebar .tagline {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.contact {
   list-style: none;
-  padding: 0;
+  margin: 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--rule);
+  font-size: 0.95rem;
+}
+
+.contact li {
+  margin-bottom: 0.4rem;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.content h1:first-child,
+.content h2:first-child {
+  margin-top: 0;
+}
+
+.detail-list {
+  padding-left: 1.2rem;
   margin: 1rem 0;
 }
 
 .detail-list li {
-  margin: 0 0 1rem;
+  margin-bottom: 0.4rem;
 }
 
-.detail-list li strong {
-  display: block;
-}
+@media (max-width: 700px) {
+  .layout {
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 2rem;
+  }
 
-.links {
-  margin-top: 1.5rem;
-  font-size: 1rem;
-  color: var(--muted);
-}
+  .sidebar {
+    position: static;
+    flex-basis: auto;
+  }
 
-.links a {
-  margin-right: 1rem;
+  .profile-photo {
+    width: 130px;
+    height: 130px;
+  }
+
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+  }
+
+  .contact li {
+    margin-bottom: 0;
+  }
 }
