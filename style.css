@@ -1,0 +1,134 @@
+/* Shared styles for all pages. Academic / serif, light + dark friendly. */
+
+:root {
+  --bg: #fdfdfb;
+  --text: #1f1f1f;
+  --muted: #5c5c5c;
+  --accent: #6b4f2a;
+  --rule: #d8d3c7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16150f;
+    --text: #e8e4d8;
+    --muted: #a49f8f;
+    --accent: #c9a978;
+    --rule: #3a3730;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 3rem 1.25rem 4rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 1.9rem;
+  margin: 0 0 0.25rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin: 2.25rem 0 0.5rem;
+}
+
+.tagline {
+  color: var(--muted);
+  font-style: italic;
+  margin: 0 0 1.5rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+a:hover {
+  border-bottom-color: var(--accent);
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 1rem;
+}
+
+.nav a {
+  color: var(--muted);
+  border-bottom: none;
+}
+
+.nav a:hover {
+  color: var(--text);
+}
+
+.nav a[aria-current="page"] {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* Home page profile photo */
+.profile-photo {
+  display: block;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1.5rem;
+  border: 1px solid var(--rule);
+}
+
+/* Lists of interests / hobbies / links */
+.detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.detail-list li {
+  margin: 0 0 1rem;
+}
+
+.detail-list li strong {
+  display: block;
+}
+
+.links {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.links a {
+  margin-right: 1rem;
+}
