@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alex — Research Interests</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header class="masthead">
     <a class="site-name" href="index.html">Alex</a>
@@ -20,7 +22,8 @@
     <aside class="sidebar">
       <img class="profile-photo" src="https://github.com/Cyan9644.png" alt="Alex">
       <p class="name">Alex</p>
-      <p class="tagline">Short one-line description of who you are and what you work on.</p>
+      <p class="tagline">I currently work in data privacy for machine learning and the theory/practice of parallel
+        algorithms. I previously worked on AI and simulations, but APIs are expensive.</p>
       <ul class="contact">
         <li><a href="mailto:you@example.com">Email</a></li>
         <li><a href="https://github.com/Cyan9644">GitHub</a></li>
@@ -31,23 +34,49 @@
     <main class="content">
       <h1>Research Interests</h1>
       <p>
-        This is placeholder text. Briefly describe the broad area you work in and the
-        questions that motivate you, then list the specific threads below.
+        The two questions I'm focused on answering right now belong to two distinct domains.
+        I don't include areas I have not explicitly done research in, but otherwise operating systems, file system
+        management, and programming languages would definitely be on this list!
+
+        1. Can principled membership inference attacks expose security risks in sequenced health record data?
+
+        2. How can a large array of NVMe SSDs best be leveraged in parallel to reduce performance loss relative to the
+        best in-memory algorithms?
+
       </p>
 
       <ul class="detail-list">
-        <li><strong>First interest area.</strong> A sentence explaining what this topic is and why it interests you.</li>
-        <li><strong>Second interest area.</strong> A sentence explaining what this topic is and why it interests you.</li>
-        <li><strong>Third interest area.</strong> A sentence explaining what this topic is and why it interests you.</li>
-        <li><strong>Fourth interest area.</strong> A sentence explaining what this topic is and why it interests you.</li>
+        <li><strong>Theory and Practice of Parallel Algorithms.</strong> I have done work mainly in the empirical side
+          of parallel algorithms, but one of my goals as a researcher is to substantiate the algorithms I develop with
+          principled reasoning about their efficiency.
+          What drew me in to this subject to begin with is the many complications of mutual data access, and the unique
+          methods that can be applied to parallelize seemingly sequential algorithms.
+          Take prime sieve, for example; the two main ways to make the algorithm parallel are to have single cores
+          handle checking specific sets of numbers (blocking) by checking where the first multiple of each known prime
+          lands in each block OR you can simply have each core be assigned to a set of primes
+          and cross off all their multiples. Both work in theory, but the first is much better and cleaner in practice
+          due to, if not the advantage of no locking, its cache locality.
+
+        <li><strong>Data Privacy.</strong> Membership Inference Attacks against machine learning models exploit one of
+          the the underlying necessities of learning, viz. memorization. We know that in practice, almost all reasonably
+          useful ML models perform differently on their training/test sets, and we can leverage this to determine
+          whether an arbitrary sample was used for training.
+          This presents clear privacy risks with sensitive data such as medical images, though there are ways to
+          mitigate the risk with
+          some performance penalties (e.g. DP-training). One question we might ask ourselves, then, is whether there
+          exists any substantial risk in these deployments; if not, then there's no reason to incur such a
+          penalty. Specifically, I'm working on this question with respect to sequence data, which requires some
+          adjustments to be made to the existing literature attacks.
+        </li>
       </ul>
 
       <h2>Selected work &amp; notes</h2>
       <ul class="detail-list">
-        <li><a href="#">Project or paper title</a> &mdash; one line on what it is and where it appeared.</li>
-        <li><a href="#">Project or paper title</a> &mdash; one line on what it is and where it appeared.</li>
+        <li><a href="#">Multi-SSD Programming Can be Fast and Ergonomic</a> &mdash; To be submitted to SPAA 2027.</li>
+
       </ul>
     </main>
   </div>
 </body>
+
 </html>
